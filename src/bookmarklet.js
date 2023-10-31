@@ -26,7 +26,6 @@ if(location.href=='https://homebrewery.naturalcrit.com/new'){
 			output[item] = processData(output[item]);
 		};
 	});
-	console.log(output);
 
 	const outputText = `{{monster,frame,wide\n
 		## ${output.name[0]}\n
