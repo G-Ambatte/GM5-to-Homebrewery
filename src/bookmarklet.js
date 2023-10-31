@@ -1,7 +1,7 @@
 javascript:(function(){
 if(location.href=='https://homebrewery.naturalcrit.com/new'){
 	const inputText = prompt('Enter source text:');
-	const regExStr = /<(\S+?)>(\s\S*?)<\/\1>/gi;
+	const regExStr = /<(\S+?)>([\s\S]*?)<\/\1>/gi;
 	const matches = Array.from(inputText.matchAll(regExStr));
 	const output = {};
 	if(matches[0][1].toString()=='monster') {
