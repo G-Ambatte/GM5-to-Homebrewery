@@ -10,6 +10,22 @@ if(location.href=='https://homebrewery.naturalcrit.com/new'){
 			output[value[1]] = output[value[1]] ? [ ...output[value[1]], value[2] ] : [ value[2] ];
 		});
 	}
+
+	const processData = (data)=>{
+		return data.map((trait)=>{
+			const dataObject= {};
+			const dataArray = Array.from(trait.matchAll(regExStr));
+			dataArray.forEach((dataInfo)=>{ dataObject[dataInfo[1]] = dataInfo[2]; });
+			return dataObject;
+		});
+	};
+
+	processItems = ['action','reaction','trait', 'legendary'];
+	processItems.forEach((item)=>{
+		if(output[item]?.length > 0){
+			output[item] = processData(output[item]);
+		};
+	});
 	console.log(output);
 
 	const outputText = `{{monster,frame,wide\n
@@ -24,30 +40,28 @@ if(location.href=='https://homebrewery.naturalcrit.com/new'){
 		|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|\n
 		|${output.str[0]}|${output.dex[0]}|${output.con[0]}|${output.int[0]}|${output.wis[0]}|${output.cha[0]}|\n
 		___\n
-		**Condition Immunities** :: buzzed\n
-		**Senses**               :: darkvision 60 ft., passive Perception 12\n
-		**Languages**            :: None\n
-		**Challenge**            :: 1 (6859 XP)\n
+		**Saves** :: ${output.save?.length > 0 ? output.save.join(',') : 'none'}\n
+		**Skills** :: ${output.skill?.length > 0 ? output.skill.join(',') : 'none'}\n
+		:\n
+		**Damage Vulnerabilities** :: ${output.vulnerable?.length > 0 ? output.vulnerable.join(', ') : 'none'}\n
+		**Damage Resistances**     :: ${output.resist?.length > 0 ? output.resist.join(', ') : 'none'}\n
+		**Damage Immunities**      :: ${output.immune?.length > 0 ? output.immune.join(', ') : 'none'}\n
+		**Condition Immunities**   :: ${output.conditionImmune?.length > 0 ? output.conditionImmune.join(', ') : 'none'}\n
+		**Senses**                 :: ${output.senses}, Passive Perception ${output.passive[0]}\n
+		**Languages**              :: ${output.languages[0]}\n
+		**Challenge**              :: ${output.cr[0]}\n
 		___\n
-		***Big Jerk.*** Whenever this creature makes an attack, it starts telling you how much cooler it is than you.\n
+		${output.trait?.length > 0 ? output.trait.map((trait)=>{ return `**${trait.name}.** ${trait.text}`}).join('\n:\n') : ''}
 		:\n
-		***Onion Stench.*** Any creatures within 5 feet of this thing develops an irrational craving for onion rings.\n
-		:\n
-		***Big Jerk.*** Whenever this creature makes an attack, it starts telling you how much cooler it is than you.\n
-		:\n
-		***Pack Tactics.*** These guys work together like peanut butter and jelly.\n
-		:\n
-		***Hangriness.*** This creature is angry, and hungry. It will refuse to do anything with you until its hunger is satisfied.\n
+		#### Reactions\n
+		${output.reaction?.length > 0 ? output.reaction.map((reaction)=>{ return `**${reaction.name}.** ${reaction.text}`}).join('\n:\n') : ''}
 		\n
-		When in visual contact with this creature, you must purchase an extra order of fries, even if they say they aren't hungry.\n
 		### Actions\n
-		***Abdominal Drop.*** *Melee Weapon Attack:* +4 to hit, reach 5ft., one target. *Hit* 5 (1d6 + 2) \n
-		:\n
-		***Airplane Hammer.*** *Melee Weapon Attack:* +4 to hit, reach 5ft., one target. *Hit* 5 (1d6 + 2) \n
-		:\n
-		***Bulldog Rake.*** *Melee Weapon Attack:* +4 to hit, reach 5ft., one target. *Hit* 5 (1d6 + 2) \n
-		:\n
-		***Abdominal Drop.*** *Melee Weapon Attack:* +4 to hit, reach 5ft., one target. *Hit* 5 (1d6 + 2) \n
+		${output.action?.length > 0 ? output.action.map((action)=>{ return `**${action.name}.** ${action.text}`}).join('\n:\n') : ''}
+		\n
+		### Legendary Actions\n
+		${output.legendary?.length > 0 ? output.legendary.map((legendary)=>{ return `**${legendary.name}.** ${legendary.text}`}).join('\n:\n') : ''}
+		\n
 		}}\n
 		`;
 
