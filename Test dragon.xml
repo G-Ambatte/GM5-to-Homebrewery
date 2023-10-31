@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<compendium version="5">
+	<monster>
+		<name>Ancient Black Dragon (Test)</name>
+		<size>G</size>
+		<type>dragon</type>
+		<alignment>chaotic evil</alignment>
+		<ac>22 (natural armor)</ac>
+		<hp>367 (21d20+147)</hp>
+		<speed>40 ft., fly 80 ft., swim 40 ft.</speed>
+		<str>27</str>
+		<dex>14</dex>
+		<con>25</con>
+		<int>16</int>
+		<wis>15</wis>
+		<cha>19</cha>
+		<save>Dexterity 9</save>
+		<save>Constitution 14</save>
+		<save>Wisdom 9</save>
+		<save>Charisma 11</save>
+		<skill>Perception 16</skill>
+		<skill>Stealth 9</skill>
+		<vulnerable>Fire</vulnerable>
+		<resist>Cold</resist>
+		<immune>acid</immune>
+		<conditionImmune>Charmed</conditionImmune>
+		<senses>blindsight 60 ft., darkvision 120 ft.</senses>
+		<passive>26</passive>
+		<languages>Common, Draconic</languages>
+		<cr>21</cr>
+		<trait>
+			<name>Source</name>
+			<text>Monster Manual p. 87</text>
+		</trait>
+		<trait>
+			<name>Amphibious</name>
+			<text>The dragon can breathe air and water.</text>
+		</trait>
+		<trait>
+			<name>Legendary Resistance (3/Day)</name>
+			<text>If the dragon fails a saving throw, it can choose to succeed instead.</text>
+		</trait>
+		<action>
+			<name>Multiattack</name>
+			<text>The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</text>
+		</action>
+		<action>
+			<name>Bite</name>
+			<text>Melee Weapon Attack: +15 to hit, reach 15 ft., one target. Hit: 19 (2d10+8) piercing damage plus 9 (2d8) acid damage.</text>
+			<attack>Bite|15|2d10+8+2d8</attack>
+		</action>
+		<action>
+			<name>Claw</name>
+			<text>Melee Weapon Attack: +15 to hit, reach 10 ft., one target. Hit: 15 (2d6+8) slashing damage.</text>
+			<attack>Claw|15|2d6+8</attack>
+		</action>
+		<action>
+			<name>Tail</name>
+			<text>Melee Weapon Attack: +15 to hit, reach 20 ft., one target. Hit: 17 (2d8+8) bludgeoning damage.</text>
+			<attack>Tail|15|2d8+8</attack>
+		</action>
+		<action>
+			<name>Frightful Presence</name>
+			<text>Each creature of the dragon&#39;s choice that is within 120 feet of the dragon and aware of it must succeed on a DC 19 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature&#39;s saving throw is successful or the effect ends for it, the creature is immune to the dragon&#39;s Frightful Presence for the next 24 hours.</text>
+		</action>
+		<action>
+			<name>Acid Breath (Recharge 5-6)</name>
+			<text>The dragon exhales acid in a 90-foot line that is 10 feet wide. Each creature in that line must make a DC 22 Dexterity saving throw, taking 67 (15d8) acid damage on a failed save, or half as much damage on a successful one.</text>
+		</action>
+		<action>
+			<name>Spellcasting</name>
+			<text>The archmage is an 18th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 17, +9 to hit with spell attacks). The archmage can cast disguise self and invisibility at will and has the following wizard spells prepared:
+
+Cantrips (at will): fire bolt, light, mage hand, prestidigitation, shocking grasp
+
+• 1st level (4 slots): detect magic, identify, mage armor*, magic missile
+
+• 2nd level (3 slots): detect thoughts, mirror image, misty step
+
+• 3rd level (3 slots): counterspell, fly, lightning bolt
+
+• 4th level (3 slots): banishment, fire shield, stoneskin*
+
+• 5th level (3 slots): cone of cold, scrying, wall of force
+
+• 6th level (1 slot): globe of invulnerability
+
+• 7th level (1 slot): teleport
+
+• 8th level (1 slot): mind blank*
+
+• 9th level (1 slot): time stop
+	* The archmage casts these spells on itself before combat.</text>
+		</action>
+		<reaction>
+			<name>Shield</name>
+			<text>The dragon can cast the shield spell</text>
+		</reaction>
+		<legendary>
+			<name>Legendary Actions (3/Turn)</name>
+			<text>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time, and only at the end of another creature&#39;s turn. The dragon regains spent legendary actions at the start of its turn.</text>
+		</legendary>
+		<legendary>
+			<name>Detect</name>
+			<text>The dragon makes a Wisdom (Perception) check.</text>
+		</legendary>
+		<legendary>
+			<name>Tail Attack</name>
+			<text>The dragon makes a tail attack.</text>
+		</legendary>
+		<legendary>
+			<name>Wing Attack (Costs 2 Actions)</name>
+			<text>The dragon beats its wings. Each creature within 15 ft. of the dragon must succeed on a DC 23 Dexterity saving throw or take 15 (2d6+8) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.</text>
+		</legendary>
+		<environment>Swamp</environment>
+	</monster>
+</compendium>
