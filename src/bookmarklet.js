@@ -27,6 +27,16 @@ if(location.href=='https://homebrewery.naturalcrit.com/new'){
 		};
 	});
 
+	const sizeMap = {
+		't' : 'Tiny',
+		's' : 'Small',
+		'm' : 'Medium',
+		'l' : 'Large',
+		'h' : 'Huge',
+		'g' : 'Gargantuan'
+	};
+	output.size[0] = sizeMap[output.size[0].toLowerCase()];
+
 	const outputText = `{{monster,frame,wide\n
 		## ${output.name[0]}\n
 		*${output.size[0]} ${output.type[0]}, ${output.alignment[0]}*\n
